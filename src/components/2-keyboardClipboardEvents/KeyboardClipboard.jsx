@@ -6,6 +6,15 @@ const KeyboardClipboard = () => {
 
   const [content, setContent] = useState("")
 
+  const handleKeyDown=(e)=>{
+
+    if(e.keyCode >= 48 && e.keyCode <= 57){
+      alert("Please dont enter a number")
+
+      //e.preventDefault ile rakam yazması engellenir
+      e.preventDefault()
+    }
+  }
 
   return (
     <div className="container mt-4">
@@ -19,7 +28,7 @@ const KeyboardClipboard = () => {
       }} 
       value={content.toLocaleUpperCase()} 
       
-      onKeyDown={(e)=>console.log(e.keyCode)}
+      onKeyDown={handleKeyDown}
       />
 
       <div className="mt-4">
