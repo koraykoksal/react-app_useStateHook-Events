@@ -14,11 +14,17 @@ const KeyboardClipboard = () => {
 
       <h2 className="text-center">KeyboardClipboard</h2>
 
-      <input type="text" name="" id="" className="form-control" onChange={(e)=>setContent(e.target.value)} />
+      <input type="text" name="" id="" className="form-control" onChange={(e)=>{
+        setContent(e.target.value)
+      }} 
+      value={content.toLocaleUpperCase()} 
+      
+      onKeyDown={(e)=>console.log(e.keyCode)}
+      />
 
       <div className="mt-4">
           <h3>Copied Content</h3>
-          <p>{content}</p>
+          <p>{content.toLocaleUpperCase()}</p>
       </div>
 
 
