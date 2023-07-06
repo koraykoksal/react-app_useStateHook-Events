@@ -3,6 +3,7 @@ import { useState } from "react"
 
 const Form = () => {
   const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
 
   const hadleUsername=(e)=>{
 
@@ -10,10 +11,20 @@ const Form = () => {
 
   }
 
+
+  const handleSubmit=(e)=>{
+
+    e.preventDefault();
+
+    alert(`${username} - ${email}`)
+
+  }
+
+
   return <div className="container mt-3">
     
     <h2 className="text-center text-success">FORM IN REACT</h2>
-    <form>
+    <form onSubmit={handleSubmit}>
 
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1">Hello : {username}</label>
@@ -29,12 +40,14 @@ const Form = () => {
       </div>
 
       <div className="mb-3">
-        <label htmlFor="exampleInputPassword1">Password</label>
+        <label htmlFor="exampleInputPassword1">Email : {email}</label>
         <input
-          type="password"
+          type="email"
           className="form-control"
-          id="password"
-          placeholder="Password"
+          id="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e)=>setEmail(e.target.value)}
         />
       </div>
 
