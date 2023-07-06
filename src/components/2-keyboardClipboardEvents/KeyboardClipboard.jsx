@@ -16,6 +16,16 @@ const KeyboardClipboard = () => {
     }
   }
 
+
+  const handleCopy=(e)=>{
+
+    alert("copyingg")
+
+    //kopyalama işlemini engellemek için prevent işlemi uygulanır
+    e.preventDefault()
+
+  }
+
   return (
     <div className="container mt-4">
 
@@ -35,6 +45,11 @@ const KeyboardClipboard = () => {
           <h3>Copied Content</h3>
           <p>{content.toLocaleUpperCase()}</p>
       </div>
+
+      <div className="mt-4 text-center">
+        <textarea name="" id="" cols="50" rows="10" onCopy={handleCopy}></textarea>
+      </div>
+      
 
 
     </div>
