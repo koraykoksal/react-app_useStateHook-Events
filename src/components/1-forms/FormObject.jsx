@@ -34,7 +34,13 @@ const FormObject = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  console.log(formData)
+  const handleNumber = (e) => {
+    console.log(e.keyCode);
+    if (e.keyCode >= 48 && e.keyCode <= 57) {
+        e.preventDefault()
+        alert("lütfen numara girmeyin");
+    }
+  };
 
   return (
     <div className="container mt-4">
@@ -53,6 +59,7 @@ const FormObject = () => {
             onChange={handleFormData}
             value={username}
             name="username"
+            onKeyDown={handleNumber}
           />
         </div>
 
